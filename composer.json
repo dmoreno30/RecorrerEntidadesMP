@@ -1,0 +1,19 @@
+{
+    "name": "asesores/proyecto-enciso",
+    "description": "Integración de Bitrix24 con Cotizador de Enciso",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Asesores\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dairon Moreno",
+            "email": "dmoreno@asesores-e.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

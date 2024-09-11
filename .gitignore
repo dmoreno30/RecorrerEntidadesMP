@@ -1,0 +1,4 @@
+log.log
+**/App/core/logs/
+/vendor/
+/App/core/settings.php
