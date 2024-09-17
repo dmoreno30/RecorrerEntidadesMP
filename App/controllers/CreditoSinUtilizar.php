@@ -20,7 +20,7 @@ class CreditoSinUtilizar extends ModelBitrix
 
 		foreach ($creditosSinutilizar as $deal) {
 			if ($deal["UF_CRM_1715009836"] == 0 || $deal["UF_CRM_1715009836"] == '') {
-				if ($deal["UF_CRM_1715008800"] == 0 || $deal["UF_CRM_1715008800"] == '') {
+				if ($deal["UF_CRM_1715008800"] == 0 || $deal["UF_CRM_1715008800"] < 150) {
 					//$b24->CrearNegociacionCSU();
 				}
 			}
