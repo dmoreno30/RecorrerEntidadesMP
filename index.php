@@ -4,12 +4,14 @@ require_once(__DIR__ . '\vendor\autoload.php');
 use Asesores\controllers\CreditoSinUtilizar;
 use Asesores\controllers\helpers;
 
-$condicion = $_REQUEST["Condicion"];
+//$condicion = $_REQUEST["Condicion"];
+$condicion = "CSU";
 try {
     switch ($condicion) {
         case 'CSU':
             $CreditoSinUtilizar = new CreditoSinUtilizar();
-            print_r($CreditoSinUtilizar->getCompanias());
+            $helpers = new helpers();
+            $helpers->FormatPrint($CreditoSinUtilizar->getCompanias());
             break;
 
         default:
@@ -17,7 +19,7 @@ try {
             break;
     }
 } catch (\Throwable $th) {
-    $helpers = new helpers();
+
     $helpers->LogRegister($th, "error de petición");
     throw $th;
 }

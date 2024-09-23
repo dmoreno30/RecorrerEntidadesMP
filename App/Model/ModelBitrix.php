@@ -7,10 +7,10 @@ use Asesores\core\CRest;
 class ModelBitrix
 {
     public $datos = [];
-    public function ObtenerCompanias($paginacion)
+    public function ObtenerDatosCRM($paginacion, $entidad)
     {
-        $result = CRest::call('crm.company.list', [
-            "select" => ['UF_CRM_1715009836', 'UF_CRM_1715008800'],
+        $result = CRest::call("crm.$entidad.list", [
+            "select" => ["UF_CRM_1715008800", "UF_CRM_1715009836"],
             "start" => $paginacion
         ]);
         return $result;
@@ -18,7 +18,7 @@ class ModelBitrix
     public function ListarCompanias(): array
     {
         $paginacion = 0;
-        $results = $this->ObtenerCompanias($paginacion);
+        $results = $this->ObtenerDatosCRM($paginacion, "company");
 
         if ($results['next']) {
             $co = false;
@@ -33,7 +33,7 @@ class ModelBitrix
                         $break = true;
                     }
 
-                    $results = $this->ObtenerCompanias($paginacion);
+                    $results = $this->ObtenerDatosCRM($paginacion, "company");
                 }
                 if ($break) {
                     break;
@@ -52,9 +52,16 @@ class ModelBitrix
 
         return $this->datos;
     }
-    public function CrearNegociacionCSU()
+    public function CrearNegociacionCSU($nombre, $company_id, $categoryID)
     {
-        $result = CRest::call('crm.deal.add', []);
+        $result = CRest::call(
+            'crm.deal.add',
+            [
+                "category_id" => $categoryID,
+                "company_id" => $company_id,
+                "TITLE" => $nombre
+            ]
+        );
         return $result;
     }
 }

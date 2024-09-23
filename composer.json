@@ -1,6 +1,6 @@
 {
-    "name": "asesores/proyecto-enciso",
-    "description": "Integración de Bitrix24 con Cotizador de Enciso",
+    "name": "asesores/proyecto-mampa",
+    "description": "Integración de Bitrix24 con  Mampa",
     "type": "project",
     "license": "MIT",
     "autoload": {
